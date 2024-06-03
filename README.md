@@ -18,5 +18,5 @@ git commit -m "my commit"
 ```
 
 or
-We can use the source code GUI approach > press on plus (+ stage change) > commit message > publish -> the code will go to github 
+We can use the source code GUI approach > 1. press on plus (+ stage change) > 2. commit message > publish (only 1st time) / else tick mark -> the code will go to github 
 
