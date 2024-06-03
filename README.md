@@ -16,3 +16,7 @@ git add .
 ```
 git commit -m "my commit"
 ```
+
+or
+We can use the source code GUI approach > press on plus (+ stage change) > commit message > publish -> the code will go to github 
+
