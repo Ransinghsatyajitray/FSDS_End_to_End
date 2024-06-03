@@ -54,4 +54,37 @@ pip list
 source activate ./env
 ```
 
+10. Creating folder structure for the project : this is automated (for every project)
 
+ML Project : 
+a. Data Ingestion component
+b. EDA comp
+c. FE comp
+d. Model Building comp
+e. Evaluation comp
+
+We will create pipeline
+a. training
+b. prediction
+
+logger file -> for logging the information
+exception file
+utils file
+setup.py -> used for storing local variables
+requirements.txt
+.gitkeep file -> when we created a folder in local (dev) and we want to push it form local to github
+                 but in github we cannot push the empty folder. In that case we can keep those empty files .gitkeep
+                 Initially in the yaml file we will keep the .gitkeep
+
+
+
+Folder structure follow modular approach
+|-.github/ - workflows/ (used for CICD) - yaml (we write the script/configuration here, where script available key value format)
+|-Notebook/ - research.ipynb
+|-src/ - Diamond_price_prediction/ - component/ - Data_ingestion.py, Preprocessing.py, model_training.py
+|      - Pipeline/ - training.py, prediction.py
+|      - exception.py
+|      - logger.py
+|      - utils.py
+|-requirements.txt
+|-setup.py
