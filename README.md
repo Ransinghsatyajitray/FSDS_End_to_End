@@ -225,3 +225,17 @@ https://www.youtube.com/watch?v=Rv6UFGNmNZg
 
 
 * We can use cookie cutter template also in place of template.py -> Check Krish Naik video
+
+
+22. Notebook implementation of Project
+
+1st we write the code in the ipynb file in notebooks/research.py
+then we convert the code to modular code
+
+HDL and LLD
+
+Data ingestion real time -> Database -> SQL/NoSQL
+                                        S3/Azure Blob
+
+
+                                        
