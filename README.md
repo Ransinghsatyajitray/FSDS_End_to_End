@@ -12,3 +12,7 @@ git add abc.txt
 
 git add .
 ```
+
+```
+git commit -m "my commit"
+```

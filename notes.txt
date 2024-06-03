@@ -1,0 +1,6 @@
+git - source code management
+terminal: 
+windows - by default cmd, powershell
+linux - bash
+
+
