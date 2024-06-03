@@ -1,4 +1,4 @@
-# Notes:
+# Notes: BOILER PLATE PROCESS/TEMPLATE
 
 1. open git bash terminal
 
@@ -100,4 +100,34 @@ Path(filepath) # it will generate system compatible path => doesnt depend on wha
 
 ```
 python template.py
+```
+
+15. __init__.py 
+
+folder - package -> has many modules and withing it we have class and def
+file - module or .py
+
+from tensorflow.tensor import mytensor
+from folder or package . file or module import class
+
+we can create our own package also
+|-Folder/
+|-      module (.py) + __init__.py
+|-                  class/def
+
+the __init__.py justifies a folder as a package
+In virtual environment -> pandas -> pip install pandas
+                          custom/local package -> 1. pip install .
+                                                  2. -e .
+                                                  3. setup.py (python setup.py install)
+
+In Python we test packages
+
+16. update the setup.py file
+17. delete the env folder
+18. update the requirements.txt
+19. update the init_setup.sh
+20.   
+```
+bash init_setup.sh
 ```
