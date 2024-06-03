@@ -197,20 +197,20 @@ pip list
 $ pip list
 Package                Version     Editable project location
 ---------------------- ----------- ------------------------------------------------------------
-DiamondPricePrediction 0.0.1       d:\python (full stack)\ineuron self practice\fsds_end_to_end
-joblib                 1.4.2
-numpy                  1.24.4
-pandas                 2.0.3
-pip                    24.0
-python-dateutil        2.9.0.post0
-pytz                   2024.1
-scikit-learn           1.3.2
-scipy                  1.10.1
-setuptools             69.5.1
-six                    1.16.0
-threadpoolctl          3.5.0
-tzdata                 2024.1
+DiamondPricePrediction 0.0.1       d:\python (full stack)\ineuron self practice\fsds_end_to_end\
+joblib                 1.4.2\
+numpy                  1.24.4\
+pandas                 2.0.3\
+pip                    24.0\
+python-dateutil        2.9.0.post0\
+pytz                   2024.1\
+scikit-learn           1.3.2\
+scipy                  1.10.1\
+setuptools             69.5.1\
+six                    1.16.0\
+threadpoolctl          3.5.0\
+tzdata                 2024.1\
 wheel                  0.43.0
 
   setup.py is mandatory for using the local packages without it putting  -e . would give error
-  
+
