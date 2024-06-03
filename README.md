@@ -31,4 +31,27 @@ tensorflow -> Apache License
 ```   
 git pull
 ```
-6. 
+6. init_setup.sh -> If I dont want execute all the commands in bash manually, I can use init_setup.sh -> here i can put code for creating the environment, requirements.txt can be downloaded (only used for Linux, can be done using bash/gitbash)
+Using the above I can automate the steps.
+
+7. To run the commands in the init_setup.sh we have to run (in git bash terminal)
+
+```
+bash init_setup.sh
+```
+
+To see shell scripting see tutorialspoint.com/unix/shell_scripting.htm
+
+8. To see the packages in the base, use
+
+```
+pip list
+```
+
+9. Sometimes in cases of errors we have to manually activate the environment
+
+```
+source activate ./env
+```
+
+
