@@ -212,4 +212,5 @@ threadpoolctl          3.5.0
 tzdata                 2024.1
 wheel                  0.43.0
 
-
+  setup.py is mandatory for using the local packages without it putting  -e . would give error
+  
