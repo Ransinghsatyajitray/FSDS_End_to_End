@@ -131,3 +131,85 @@ In Python we test packages
 ```
 bash init_setup.sh
 ```
+
+If the environment is not activated by default, -> (some issue with windows)
+```
+source activate ./env 
+```
+can be used
+
+21. 
+
+# 1st way -> 
+to see the custom/local package in pip list
+
+```
+python setup.py install
+```
+
+we will see the DiamondPricePrediction file in the pip list
+
+$pip list
+Package                Version
+---------------------- -----------
+DiamondPricePrediction 0.0.1             (This one)
+joblib                 1.4.2
+numpy                  1.24.4
+pandas                 2.0.3
+pip                    24.0
+python-dateutil        2.9.0.post0
+pytz                   2024.1
+scikit-learn           1.3.2
+scipy                  1.10.1
+setuptools             69.5.1
+six                    1.16.0
+threadpoolctl          3.5.0
+tzdata                 2024.1
+wheel                  0.43.0
+
+
+We will see several files created
+
+* The author can give us the package , then author can deploy the project to pypi and then ask us to download from pypi
+
+This is the first way to install custom  packages
+Delete build, dist, egg file
+```
+pip uninstall DiamondPricePrediction
+```
+
+```
+pip list
+```
+
+# 2nd way ->
+open the requirements.txt
+
+-e .    (-e -> editable)
+
+```
+pip install -r requirements.txt
+```
+We can again see the egg file
+
+pip list
+
+$ pip list
+Package                Version     Editable project location
+---------------------- ----------- ------------------------------------------------------------
+DiamondPricePrediction 0.0.1       d:\python (full stack)\ineuron self practice\fsds_end_to_end
+joblib                 1.4.2
+numpy                  1.24.4
+pandas                 2.0.3
+pip                    24.0
+python-dateutil        2.9.0.post0
+pytz                   2024.1
+scikit-learn           1.3.2
+scipy                  1.10.1
+setuptools             69.5.1
+six                    1.16.0
+threadpoolctl          3.5.0
+tzdata                 2024.1
+wheel                  0.43.0
+
+
