@@ -88,3 +88,16 @@ Folder structure follow modular approach
 |      - utils.py
 |-requirements.txt
 |-setup.py
+
+11. create template.py file
+12. delete the init_setup.sh
+
+
+Path(filepath) # it will generate system compatible path => doesnt depend on what we are providing
+
+13. delete the init_setup.sh as we will create it using the template file
+14. In the terminal run (for industry)
+
+```
+python template.py
+```
