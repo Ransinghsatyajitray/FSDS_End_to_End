@@ -27,5 +27,8 @@ We can use the source code GUI approach > 1. press on plus (+ stage change) > 2.
 pandas -> BSD 2 License
 tensorflow -> Apache License
 
-5. git pull
+5. 
+```   
+git pull
+```
 6. 
