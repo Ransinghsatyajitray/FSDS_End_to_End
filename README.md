@@ -214,3 +214,14 @@ wheel                  0.43.0
 
   setup.py is mandatory for using the local packages without it putting  -e . would give error
 
+
+# 3rd way(the best way)-
+Thus using the setup.py we can even install the local as well as external packages.  
+
+* The pip install -r requirements.txt in the init_setup.sh will take care of all the installations, as we have done all the setting in it using the get_requirements function and specifying the in install_requires argument of setup function
+
+
+https://www.youtube.com/watch?v=Rv6UFGNmNZg
+
+
+* We can use cookie cutter template also in place of template.py -> Check Krish Naik video
