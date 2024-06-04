@@ -279,7 +279,7 @@ CD =  AWS App Runner -> Server-> deploy -> end point URL
 
 Self hosted Runner
 
-------------------CICD or MLOPS ----------------------------
+------------------CICD or MLOPS (Devops for ML)---------------------
 1. code available in local dev env
 2. from here we are using git to push to github (central repo)
 3. github action is an alternative of circleci/jenkins/travisci
@@ -287,3 +287,6 @@ Self hosted Runner
 4. The image will be pushed to ECR. Here we will save the docker image.
 5. We will deploy the code to AWS App runner. In backend it will provide EC2.
 
+1 to 3 - CI
+3 TO 4 - Cont Delivery
+4 to 5 - Cont Deployment
