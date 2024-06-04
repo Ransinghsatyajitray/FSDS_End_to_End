@@ -245,3 +245,45 @@ Docker learning -> https://www.linkedin.com/learning/docker-for-data-scientists/
 
 
 For plotting -> plotnine is the best
+
+
+# 29th October'23 session -> component and pipeline implementation
+# 4th Nov23 -> creating prediction and web api
+# 5th Nov23 Deployment of machine learning project with complete CI-CD
+# 18th Nov23 Introduction of MLOps
+# Mlflow uses in end to end project
+
+
+# torch -> Datacamp
+# DL -> from FSDS + Master GENAI
+
+
+# CICD
+
+|<--------Automated--------->
+DEV -> Testing (pytest) : unittest/Integration -> QA 
+|<--------------------CI--------------------------->
+
+
+-> Deliver (Docker) -> Deployment -> monitoring and maintenance
+|<<<<<<<<<<<<<<<<<<<<<      CD         >>>>>>>>>>>>>>>>>>>>>
+
+
+local (dev env)  -> github -> github action (server) -> docker image -> AWS ECR / Az Container Repo -> AWS App Runner -> Server
+-> deploy -> end point URL
+
+
+CI = local (dev env)  -> github -> github action (server)
+CD = docker image -> AWS ECR / Az Container Repo ->
+CD =  AWS App Runner -> Server-> deploy -> end point URL
+
+Self hosted Runner
+
+------------------CICD or MLOPS ----------------------------
+1. code available in local dev env
+2. from here we are using git to push to github (central repo)
+3. github action is an alternative of circleci/jenkins/travisci
+   It is a server. server is nothing but a system. There are tools for CICD. On github action we would be running the docker file and creating docker image
+4. The image will be pushed to ECR. Here we will save the docker image.
+5. We will deploy the code to AWS App runner. In backend it will provide EC2.
+
