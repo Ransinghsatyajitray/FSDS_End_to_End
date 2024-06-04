@@ -242,3 +242,6 @@ Docker learning -> https://www.linkedin.com/learning/docker-for-data-scientists/
 
 
 # When Data is large, say 70gb ---> ??
+
+
+For plotting -> plotnine is the best
