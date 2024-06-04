@@ -238,4 +238,7 @@ Data ingestion real time -> Database -> SQL/NoSQL
                                         S3/Azure Blob
 
 
-                                        
+Docker learning -> https://www.linkedin.com/learning/docker-for-data-scientists/what-you-should-know?autoSkip=true&resume=false
+
+
+# When Data is large, say 70gb ---> ??
