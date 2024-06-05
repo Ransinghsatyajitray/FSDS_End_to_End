@@ -431,6 +431,7 @@ The routes (as mentioned using flask or fast api)we can use to access multiple a
 
 1. You need to ready the code in your local
 2. you need to create your own repo on github and push this code to your github
+   < After cloning some one's repo you will get .git folder also in your repo. it might be hidden folder so first delete that .gitfolder and init your git with command git init then follow the further setup for pushing the code to your github repo>
 3. here if i am performing ci/cd so this workflow is very important
    make sure you have .github/workflows/main.yaml
 4. and create the docker file since i am doing the deployment in form of the docker image
@@ -442,7 +443,50 @@ The routes (as mentioned using flask or fast api)we can use to access multiple a
    7.2 create a ECR repo
    7.3 config the app runner
 8. add variables in to github repo as secret & variables -> AWS_KEY_ID and AWS_SECRET_ACCESS_KEY,   < setting -> secret and variables/action/secret -> click on new repo secret>
-9. in workflow file check you have mentioned the correct ECR repo name and region
+9.  in workflow file check you have mentioned the correct ECR repo name and region
 
 
 The end user will use the endpoint URL
+
+How we fill the yaml file?
+We get the templates for the various workflows
+
+
+
+**Introduction to MLOps**
+MLOps tools - mlflow, dvc, bentoml, cortex, cometml, tfx, evidently
+
+Development :
+code -> testing or staging (unit ot integration)-> QA/QC(Non tech)
+
+Operation or Production:
+Delivery -> Deployment -> Monitoring ->
+Maintenance
+
+SDLC - software development life cycle
+
+Currently agile methodology followed
+previously waterfall methodology was followed
+
+task splitted into sprint
+CRISP DM
+
+Code versioning -> git/github
+testing -> github action, pytest for testing or jenkins
+QC/QA -> visual check
+Deployment ->cloud
+maintenance -> cloud watch
+
+
+**Terms:**
+1. data versioning - DVC (Create version of the data)
+2. SCM (gitub/gitlab/bitbucket)
+3. Experiment Tracking (mlflow, dvc) 
+4. Feature Store (feast)
+5. Model Serving (bentoml, tfx) URL
+6. Model Monitoring (grifana, promethius)
+7. Model registry (mlflow)
+8. workflow/scheduling (airflow)
+9. containerization (docker) 
+10. manage containerization (kubeflow)
+11. configuration management (terraform)
