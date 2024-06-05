@@ -529,3 +529,12 @@ SQL - RDS
 Data warehouses - Redshift
 github - code commit
 
+
+**mlflow:**
+with mlflow.start_run():
+
+mlflow.log_param("X",X)
+
+IN TERMINAL -> mlflow ui
+
+we keep it (mlflow) in modularized code.
