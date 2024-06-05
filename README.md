@@ -489,4 +489,43 @@ maintenance -> cloud watch
 8. workflow/scheduling (airflow)
 9. containerization (docker) 
 10. manage containerization (kubeflow)
-11. configuration management (terraform)
+11. infra configuration management (terraform - Infra as code, yml file)
+12. managing configuration -> ansible/puppet
+13. Cloud -> GCP - Vertex AI, AWS - Sagemaker, Azure- ML Studio, Databricks - Databricks
+
+
+MLOPS ->
+    Configuration
+    data collection
+    testing debugging
+    resource management
+    serving infra
+    model analysis
+    ml code
+    process management
+    monitoring
+    metadata management
+    feature engineering
+    data verification
+    automation
+
+
+
+CT -> continuous training -> Airflow
+
+See architecture from Google
+
+https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning
+
+
+
+![alt text](image.png)
+
+
+**AWS:**
+Serverless operation -> AWS Lambda
+NoSQL db -> Mongodb
+SQL - RDS
+Data warehouses - Redshift
+github - code commit
+
