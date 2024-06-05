@@ -438,9 +438,10 @@ The routes (as mentioned using flask or fast api)we can use to access multiple a
 6. you need to sign up or login to your aws account
 7. you need to config three thing
    7.1 create an IAM user
+       < search IAM / user/ create user/ attached policy/ administrator access/ download the secrets>
    7.2 create a ECR repo
    7.3 config the app runner
-8. add variables in to github repo as secret variables -> AWS_KEY_ID and AWS_SECRET_ACCESS_KEY,   < setting -> secret and variables/action/secret -> click on new repo secret>
+8. add variables in to github repo as secret & variables -> AWS_KEY_ID and AWS_SECRET_ACCESS_KEY,   < setting -> secret and variables/action/secret -> click on new repo secret>
 9. in workflow file check you have mentioned the correct ECR repo name and region
 
 
