@@ -246,7 +246,7 @@ Docker learning -> https://www.linkedin.com/learning/docker-for-data-scientists/
 
 For plotting -> plotnine is the best
 
-
+To do xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 # 29th October'23 session -> component and pipeline implementation
 # 4th Nov23 -> creating prediction and web api
 # 5th Nov23 Deployment of machine learning project with complete CI-CD
@@ -290,3 +290,158 @@ Self hosted Runner
 1 to 3 - CI
 3 TO 4 - Cont Delivery
 4 to 5 - Cont Deployment
+
+Docker can be thought as an advanced virtual machine. Docker Engine is responsible for creating container. 
+
+HELM , Kubernates
+Microservices
+
+
+
+# 5th Nov23 Deployment of machine learning project with complete CI-CD
+
+1. training pipeline and prediction (web api using flask) pipeline
+2. local system -> github -> github action(main.yaml which my created configuration) -> we will get a docker image -> push image to ECR -> App Runner
+
+2.1. Create a .github folder inside project root directory. Inside the .github folder create another folder named workflows. Inside the workflows folder create main.yaml file
+In the root directory create a File, Dockerfile(No extension needed)
+-> We create the docker file for creating a docker image
+-> Docker file is a set of instruction (specify the base image and also the configuration)
+
+app -> Dockerfile -> Docker image -> Docker container
+
+set of instruction:
+> I require Python
+> I want to instruct to push the codes from working directory  to app directory inside docker
+> install the requirements.txt packages
+> python app.py
+
+See dockerhub -> we can find images
+
+
+**Dockerfile:**
+_____________
+
+FROM python:3.8-slim-buster            (We are fetching from dockerhub)
+WORKDIR /service                       (Creating in dockerfile)
+COPY requirements.txt .
+COPY . ./
+RUN pip install -r requirements.txt
+ENTRYPOINT ["python3", "app.py"]       (it allows to set a default command and parameters, ENTRYPOINT["executable", "param1", "param2"])
+
+**Note:**
+> Once we open the github -> Actions -> New Workflows (We can see Python Package, Docker image)
+
+**main.yaml: (Author is using the template from github action)**
+
+GITHUB SERVER TO ECR (AWS SERVER)
+
+__________
+name: Build and push image to ECR
+on:                                      |
+    push:                                |  When ever you are pushing anything in the main branch then only you need to run this workflow
+        branches:                        | 
+            -main                        |
+
+jobs:                                    | These are the tasks that I would perform using github action
+    build-and-push-ecr-image:
+        name: Build Image
+        **runs-on: ubuntu-latest**           | which machine i am using
+        steps:
+        -name: Check out code
+         uses: actions/checkout@v2
+        -name: Install Utilities
+         run: |
+             **sudo apt-get update**                         | Update the ubuntu machine
+             **sudo apt-get install -y jq unzip**            |  ----------''------------
+        -name: Configure AWS credentials
+         uses: aws-actions/configure-aws-credentials@v1
+         with:
+            aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}                    |to make connection from github server to aws
+            aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}            |---------------------''---------------------
+            aws-region: us-east-1                                                |
+        -name: Login to Amazon ECR
+         id: login-ecr
+         uses: aws-actions/amazon-ecr-login@v1
+        -name: Build, tag and push image to Amazon ECR
+         env:
+            ECR_REGISTRY: ${{steps.login-ecr.outputs.registry}}
+            ECR_REPOSITORY: github-sample                                        |ECR repository name created in AWS (Place the exact name)
+            IMAGE_TAG: latest
+        run: |
+            docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG             |building the image
+            docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG                 |pushing the image
+
+
+
+In the code , app.py mention
+if __name__ == "__main__":
+    app.run(host = "0.0.0.0", port=8080)
+
+
+> We have to merge the codes to main branch
+> click on action -> we can see the workflow
+
+Click on AWS console
+> Search ECR
+> create a repo (private) -> create repo
+
+In new screen search IAM
+> create new users -> permission(attached policy directly) -> Administrator access -> next
+> click on user -> click on security credential -> create access key -> next
+> access key and secret access key (download .csv)
+
+By using it we can connection between github action server and aws server
+
+Now we have to mention the access key and the secret access key in the github repo
+> click on setting
+> secrets and actions
+> select the secrets -> new repository secret
+> Name: AWS_ACCESS_KEY_ID , Secret: copy past the access key id                       |we can see them in the yaml file
+> select the secrets -> new repository secret
+> Name: AWS_SECRET_ACCESS_KEY, Secret: copy paste the secret                          |we can see them in the yaml file
+
+
+As soon as I integrate anything with my repository in github and push it to main branch, the deployment pipeline will be triggered
+
+
+Go to Actions - we can see the image being built
+Now when we go to ECR we can see our image
+
+Now we have to deploy the image
+> Search AWS App Runner(A serverless service)
+> Repository Type -> Container registry [SELECT THIS]      or Source Code Repository
+> Provider -> Amazon ECR [SELECT THIS]    or Amazon ECR Public
+> Container image URI -> browse and select,  Image tag -> latest
+> Deployment Trigger -> Automatic (App Runner monitors your registry and deploys a new version of your service for each image push)
+> ECR access role -> Create access role
+> Next -> Service Name: Give a name, Select the Virtual CPU and Virtual Memory, Port: 8080 
+> Next
+> Create and Deploy(It will take 5-7 min)
+
+
+We are deploying as docker Image
+Serverless -> EBS, App Runner , AWS Lambda, Here we dont need to configure the server
+
+The default domain that is generated by the App runner can be sent to users and then they can access
+The routes (as mentioned using flask or fast api)we can use to access multiple analysis we want
+
+
+
+
+1. You need to ready the code in your local
+2. you need to create your own repo on github and push this code to your github
+3. here if i am performing ci/cd so this workflow is very important
+   make sure you have .github/workflows/main.yaml
+4. and create the docker file since i am doing the deployment in form of the docker image
+5. edit the app.py file write app.run(host="0.0.0.0", port=8080)
+6. you need to sign up or login to your aws account
+7. you need to config three thing
+   7.1 create an IAM user
+   7.2 create a ECR repo
+   7.3 config the app runner
+8. add variables in to github repo as secret variables -> AWS_KEY_ID and AWS_SECRET_ACCESS_KEY,   < setting -> secret and variables/action/secret -> click on new repo secret>
+9. in workflow file check you have mentioned the correct ECR repo name and region
+
+
+The end user will use the endpoint URL
