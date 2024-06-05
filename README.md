@@ -538,3 +538,9 @@ mlflow.log_param("X",X)
 IN TERMINAL -> mlflow ui
 
 we keep it (mlflow) in modularized code.
+
+https://mlflow.org/docs/latest/tracking.html
+
+![alt text](image-1.png)
+
+
