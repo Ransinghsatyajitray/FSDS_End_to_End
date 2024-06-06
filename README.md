@@ -726,5 +726,30 @@ $gt - greater
 mycol.find({"salary":{"$gt":100000}})
 
 
+# csv file
+install pandas
 
+
+df = pd.pread_csv('...")
+
+mydb=client["mydatabase]
+
+mycol2 = mydb["googleplaystore"]
+
+import json
+json.loads(df.T.to_json().values())
+
+#  list of records
+
+mycsvfile = list(json.loads(df.T.to_json().values()))
+
+
+[
+    {},
+    {},
+
+
+]
+
+mycol2.insert_many(mycsvfile)
 
