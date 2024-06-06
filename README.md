@@ -545,3 +545,186 @@ https://mlflow.org/docs/latest/tracking.html
 
 
 **19th Mov 23:MLflow uses in End to End Project**
+
+**Mongodb**
+
+1. We need to setup mongodb in cloud(mongodb atlas)
+2. connect this mongodb atlas with python
+3. then perform different types of queries
+
+
+signin
+
+project > new project > create project >
+deploy your database > MO Free > aws (default) >
+region(key default) > create -> security quickstart
+
+> username and password (save it some where) > create the user > IP address 0.0.0.0/0 (allow traffic from any where)   | Description - testing
+> add entry
+
+Click on database
+
+download mongodb compass and install it in the system
+
+in mongodb atlas
+database  > connect > __connect to cluster()__
+> driver (Python) > version 3.6 or later > 
+> in command line "python -m pip install pymongo==3.6
+> open vs code on local system > create a new environment >
+> cmd : conda create -p venv python=3.8     | -p -> prefix
+> conda activate venv
+> requirements.txt    pymongo==3.6 
+> pip install -r requirements.txt
+> making connectivity -> copy the code from mongodb atlas (Add your connection string into your application code section)
+name the file as testing.py
+
+in password in uri mention your password
+
+> cmd: python testing.py
+> might get an error 
+> in requirements.txt add pymongo[srv]
+> python testing.py
+>
+> Successful message we will get
+>
+
+MySQL -> Rdbms -> sql
+
+NOSQL -> Document based db, key value based, graph based db, column based db
+
+Mongodb -> document based db
+
+document contain records inform of json
+
+{
+
+}
+
+{
+
+}
+
+Shell based interaction
+Mongodb compass - GUI Based option
+
+cloud version of mongo db -> mongodb atlas
+
+
+Database -> CRUD Operation
+Document -> json
+
+1. create database  
+2. collection for nosql | table in rdbms
+3. data will be available in form on json | table in rdbms
+
+
+Python driver ---> database
+> we can do queries
+
+eg.
+key value db- cassendra
+graph based db - neo4j
+columns based db -> hbase
+
+
+Create database
+
+in python ipynb
+
+> mydb = client ["mydatabase]
+>
+# list all database name
+> client.list_database_names()
+>
+> mycol = mydb["myfirstcollection"]
+>
+> myfirstrecord = {"name":"Ransingh", "lname":"Ray}
+
+> mycol.insert_one(myfirstrecord)
+
+# incase of error in driver
+cmd: pip uninstall pymongo
+
+mention pymongo in requirements.txt without version
+
+restart the kernel 
+run the testing.py
+
+> Open the database in atlas, we can see the mydatabase and mycoll
+
+
+**To connect atlas on cloud with installed compass**
+
+click on database > connect > I have Mongodb compass
+> copy the uri > in compass update the uri keeping the password > now we can see all the database and all the columns
+
+
+inserting multiple records
+>
+> create a list of dictionaries
+>
+> x = mycol.insert_many(multiplerecords)
+>
+> x.inserted_ids
+
+custom id
+> in the dictionary key mention "_id"
+>
+
+# finding one record
+mycol.find_one()
+
+
+# all record
+for x in mycol.find():
+    print(x)
+
+# based on some condition
+mycol.find_one({"fname":"Ransingh"})
+
+mycol.find_one({"city":"Bengaluru"})
+
+
+
+# sorting
+
+for x in mycol.find().sort("fname"):
+    print(x)
+
+for x in mycol.find().sort("fname",-1):
+    print(x)
+
+
+# delete
+
+mycol.delete_name({"fname":"vikas"})
+
+
+# all record
+mycol.delete_any({})
+
+
+# seing 3 reocrd
+
+for x in mycol.find().limit(4):
+    print(x)
+
+
+
+
+# updating
+myquery = {"fname":"sunny"}
+newvalue = {"$set":{"fname":"mohit"}} # "$set":
+mycol.update_one(myquery, newvalue)
+
+
+
+see mongodb query operators
+
+$gt - greater
+
+mycol.find({"salary":{"$gt":100000}})
+
+
+
+
