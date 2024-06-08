@@ -1,5 +1,45 @@
 # Notes: BOILER PLATE PROCESS/TEMPLATE
 
+## How to run:
+
+1. Create a new virtual environment
+
+```bash
+conda create -n assistant python=3.10
+
+```
+
+# Note:
+# Uploading visual documentation/screenshot - Just copy paste
+
+# Right way vs wrong way to create virtual environment
+![alt text](<right vs wrong way to create virtual environment.png>)
+
+
+
+1. Checkout the created virtual environment
+
+```bash
+conda env list
+
+```
+
+3. Activate the virtual environment
+
+```bash
+conda activate assistant 
+
+```
+
+4. Install all the packages present in the requirements file
+
+
+```bash
+pip install -r requirements.txt
+
+```
+
+
 1. open git bash terminal
 
 2.  
